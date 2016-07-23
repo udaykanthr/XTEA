@@ -46,7 +46,7 @@ push(v[0] & 0x000000ff);
  push((v[1] & 0xff000000) >> 24);
 }
 int main() {
-  printf("here ...\n");
+
   uint8_t *d = "This is a sample encryption TEXT";
   uint8_t *key = "mmmmmmmmmmmmmmmm";
 
@@ -59,7 +59,7 @@ int main() {
   int i=0;
   int n=0;
   uint32_t v[2];
-printf("\n encrupting: \n%s\n", d);
+  printf("\n encripting: %*s\n", 57, d);
  int len = strlen(d);
   for (i=0; d[i] != '\0'; i = i+4) {
     if ((i+3) < len) {
@@ -116,7 +116,7 @@ printf("\n encrupting: \n%s\n", d);
 
   }
 
-  printf("\nencrypted string is \n%s\n", buffer);
+  printf("encrypted string is %*s\n", 50, buffer);
   
   v[0] = 0;
   v[1] = 0;
@@ -127,9 +127,8 @@ printf("\n encrupting: \n%s\n", d);
   }
   i=0;
   p=0;
-  printf("length of string is %d\n", len);
+  printf("length of string is %*d\n", 20, len);
   for (i=0; e_data[i] != '\0'; i = i+4) {
-    printf("\nchar: %c\n", e_data[i]);
     if ((i+3) < len) {
       if (n == 0) {
         v[0] = e_data[i+3]<<24 | e_data[i+2]<<16 | e_data[i+1]<<8 | e_data[i];
@@ -184,7 +183,8 @@ printf("\n encrupting: \n%s\n", d);
 
   }
 
-  printf("\n............. Decrpted string:\n%s\n", buffer);
-  
+  /* printf("Decrpted string is %*s\n", 30, buffer); */
+  printf("decrypted string is %*s\n", 50, buffer);
+  printf("ThankYou!");
   return 0;
 }
